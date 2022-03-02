@@ -16,18 +16,18 @@ namespace API.Controllers
     [Authorize(Roles = "Admin,Owner", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
-    public class CostumersController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        private readonly IRepository<Costumer> _repository;
+        private readonly IRepository<Customer> _repository;
 
-        public CostumersController(IRepository<Costumer> repository)
+        public CustomersController(IRepository<Customer> repository)
         {
             _repository = repository;
         }
 
         // GET: api/Costumers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Costumer>>> GetAllCostumer()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetAllCostumer()
         {
             //return await _costumerRepository.GetAllCostumers();
             return await _repository.GetAll();
@@ -35,7 +35,7 @@ namespace API.Controllers
 
         // GET: api/Costumers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Costumer>> GetCostumer(Guid id)
+        public async Task<ActionResult<Customer>> GetCostumer(Guid id)
         {
             var costumer = await _repository.GetById(id);
 
@@ -50,7 +50,7 @@ namespace API.Controllers
         //// PUT: api/Costumers/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditCostumer(Guid id, Costumer costumer)
+        public async Task<IActionResult> EditCostumer(Guid id, Customer costumer)
         {
             if (id != costumer.Id || !ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace API.Controllers
         //// POST: api/Costumers
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Costumer>> InsertCostumer(Costumer costumer)
+        public async Task<ActionResult<Customer>> InsertCostumer(Customer costumer)
         {
             if (ModelState.IsValid)
             {

@@ -12,9 +12,9 @@ namespace API.Models
         [DataType(DataType.Currency)]
         public decimal Value { get; set; }
 
-        public virtual Costumer? Costumer { get; set; }
+        public virtual Customer? Customer { get; set; }
 
         [Required]
-        public Guid CostumerId { get; set; }
+        public Guid CustomerId { get; set; }
     }
 }

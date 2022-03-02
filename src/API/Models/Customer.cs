@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace API.Models
 {
-    public class Costumer : Entity
+    public class Customer : Entity
     {
         [Required]
         public string Name { get; set; }
