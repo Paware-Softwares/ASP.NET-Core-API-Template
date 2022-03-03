@@ -4,7 +4,6 @@ using API.Models;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Stripe;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,13 +58,6 @@ namespace API.Repositories
                 return null;
 
             var refreshToken = API.Services.TokenService.GenerateRefreshToken();
-
-            var options = new CustomerCreateOptions
-            {
-                Name = register.UserName,
-                Email = register.Email,
-                Description = "Apointment Management Costumer",
-            };
 
             User user = new User
             {
