@@ -60,20 +60,15 @@ namespace API.Repositories
 
             var refreshToken = API.Services.TokenService.GenerateRefreshToken();
 
-            StripeConfiguration.ApiKey = "sk_test_51JFuapBgCfnmBBK0Yig69RO6DQZUO4eNrHejkDp1LQQorfy8ZPjrxbmHUmaiSccA7I1MrSHm47r4Kw7sogbNrMsj00LU3DC6WT";
-
             var options = new CustomerCreateOptions
             {
                 Name = register.UserName,
                 Email = register.Email,
                 Description = "Apointment Management Costumer",
             };
-            var service = new CustomerService();
-            var stripe_response = service.Create(options);
 
             User user = new User
             {
-                StripeId = stripe_response.Id,
                 UserName = register.UserName,
                 Email = register.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(register.Password),
