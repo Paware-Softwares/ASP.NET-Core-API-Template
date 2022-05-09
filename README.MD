@@ -6,3 +6,5 @@ This template is meant to be a easy way to start an .NET Core API withou having 
 - Authorization
 - Generic interface for database basic operations
 - Swagger documentation
+
+Feel free to use it as you wish!
